@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tool>
+	<displayname><![CDATA[Tour de GIS]]></displayname>
+	<tooltip><![CDATA[Guidet tour igennem WebGIS'en]]></tooltip>
+	<description><![CDATA[Få en guidet tour igennem brugerfladen i Spatial Suite]]></description>
+
+	<requires>
+		<file type="css" name="//unpkg.com/driver.js/dist/driver.min.css" charset="utf-8" />
+	</requires>
+
+	<onclick>sps_tool_init();</onclick>
+
+	<jssrc><![CDATA[
+		function sps_tool_init() {
+			require(["//unpkg.com/driver.js/dist/driver.min.js"], Driver => {
+				let orphanCheck = e => {
+					e.stage.node.style.display = (e.node == document.body) ? 'none' : 'block';
+				}
+
+				let spsDriver = new Driver({
+					onHighlighted: orphanCheck,
+					allowClose: false,
+					closeBtnText: 'Luk',
+					nextBtnText: 'Næste',
+					prevBtnText: 'Forrige',
+					doneBtnText: 'Færdig'
+				});
+
+				spsDriver.defineSteps([
+					{
+						element: 'body',
+						popover: {
+							title: 'WebGIS tour',
+							description: 'Velkommen til en guidet tour i Slagelse kommunes WebGIS - Spatial Suite!',
+							position: 'mid-center'
+						}
+					},
+					{
+						element: '#panel-themes',
+						popover: {
+							title: 'Temavælgeren',
+							description: 'Det her er Temavælgeren. Her kan du finde alle de temaer, som er tilgengælige!',
+							position: 'right'
+						}
+					},
+					{
+						element: '#panel-themes-header',
+						popover: {
+							title: 'Temavælgeren',
+							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller lave dit eget tema eller skitse',
+							position: 'bottom'
+						}
+					},
+					{
+						element: 'body',
+						popover: {
+							title: 'Tak for nu!',
+							description: 'Tilbage til arbejde! :) ',
+							position: 'mid-center'
+						}
+					}
+				])
+				spsDriver.start();
+			})
+		}
+	]]>
+	</jssrc>
+
+	
+</tool>
