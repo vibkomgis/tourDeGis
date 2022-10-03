@@ -48,7 +48,7 @@
 						popover: {
 							title: 'Temavælgeren',
 							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller lave dit eget tema eller skitse',
-							position: 'bottom'
+							position: 'right'
 						}
 					},
 					{

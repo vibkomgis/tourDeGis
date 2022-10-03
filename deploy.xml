@@ -1,11 +1,6 @@
 <deploy>
+
 	<version>0.1</version>
 	<description>Et tutorial modul til SpS</description>
-
-	<makedir dir="[cbinfo.wwwroot.dir]/modules/tourDeGis/" />
-
-	<copydir fromdir="[module:tourDeGis.dir]/js" todir="[cbinfo.wwwroot.dir]/modules/tourDeGis/js" replacetext="true" />
-
-	<param name="module.tourDeGis.js">/modules/tourDeGis/js/tourdegis.js</param>
 
 </deploy>
