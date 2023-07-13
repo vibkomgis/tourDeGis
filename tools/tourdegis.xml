@@ -5,30 +5,28 @@
 	<description><![CDATA[Få en guidet tour igennem brugerfladen i Spatial Suite]]></description>
 
 	<requires>
-		<file type="css" name="//unpkg.com/driver.js/dist/driver.min.css" charset="utf-8" />
+		<file type="script" name="//cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js" priority="1"/>
+		<file type="css" name="//cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css" charset="utf-8" />
 	</requires>
 
 	<onclick>sps_tool_init();</onclick>
 
 	<jssrc><![CDATA[
 		function sps_tool_init() {
-			require(["//unpkg.com/driver.js/dist/driver.min.js"], Driver => {
-				let orphanCheck = e => {
-					e.stage.node.style.display = (e.node == document.body) ? 'none' : 'block';
-				}
-
-				let spsDriver = new Driver({
-					onHighlighted: orphanCheck,
-					allowClose: false,
-					closeBtnText: 'Luk',
-					nextBtnText: 'Næste',
-					prevBtnText: 'Forrige',
-					doneBtnText: 'Færdig'
-				});
-
-				spsDriver.defineSteps([
+			
+			let spsDriver = window.driver.js.driver({
+				allowClose: true,
+				onDestroyStarted: () => {
+					if (!spsDriver.hasNextStep() || confirm("Er du sikker, at du vil afslutte din guidede tour?")) {
+						spsDriver.destroy()
+					}
+				},
+				nextBtnText: 'Næste',
+				prevBtnText: 'Forrige',
+				doneBtnText: 'Færdig',
+				showProgress: true,
+				steps: [
 					{
-						element: 'body',
 						popover: {
 							title: 'WebGIS tour',
 							description: 'Velkommen til en guidet tour i Slagelse kommunes WebGIS - Spatial Suite!',
@@ -68,16 +66,15 @@
 						}
 					},
 					{
-						element: 'body',
 						popover: {
 							title: 'Tak for nu!',
 							description: 'HUSK, at du ikke kan ødelægge noget, så du kan rolig prøve dig frem :) Hvis du har nogen som helst spørgsmål eller har lyst til at vide mere, så er du velkommen til at kontakte os i GIS ved at klikke HER',
 							position: 'mid-center'
 						}
 					}
-				])
-				spsDriver.start();
+				]
 			})
+			spsDriver.drive()
 		}
 	]]>
 	</jssrc>
