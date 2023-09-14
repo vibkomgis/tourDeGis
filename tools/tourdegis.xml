@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tool>
-	<displayname><![CDATA[Tour de GIS]]></displayname>
-	<tooltip><![CDATA[Guidet tour igennem WebGIS'en]]></tooltip>
-	<description><![CDATA[Få en guidet tour igennem brugerfladen i Spatial Suite]]></description>
+	<displayname><![CDATA[Intro]]></displayname>
+	<tooltip><![CDATA[Guidet tour i Webkortet]]></tooltip>
+	<description><![CDATA[Få en guidet tour igennem brugerfladen i Webkortet]]></description>
 
 	<requires>
 		<file type="script" name="//cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js" priority="1"/>
@@ -28,8 +28,8 @@
 				steps: [
 					{
 						popover: {
-							title: 'WebGIS tour',
-							description: 'Velkommen til en guidet tour i Slagelse kommunes WebGIS - Spatial Suite!',
+							title: 'Introduktion til Webkortet',
+							description: 'Velkommen til en guidet tour i Viborg Kommunes kort til sagsbehandlere!',
 							position: 'mid-center'
 						}
 					},
@@ -37,7 +37,7 @@
 						element: '#panel-themes',
 						popover: {
 							title: 'Temavælgeren',
-							description: 'Det her er Temavælgeren. Her kan du finde alle de temaer, som er tilgengælige!',
+							description: 'Det her er Temavælgeren. Her kan du finde alle de temaer, der er tilgengælige!',
 							position: 'right'
 						}
 					},
@@ -45,7 +45,7 @@
 						element: '#panel-themes-header',
 						popover: {
 							title: 'Temavælgeren',
-							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller lave dit eget tema eller skitse',
+							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller oprette dit eget tema eller din egen skitse',
 							position: 'right'
 						}
 					},
@@ -58,17 +58,57 @@
 						}
 					},
 					{
-						element: '#mapcontainerSearch',
+						element: '#favorites_list',
+						popover: {
+							title: 'Favoritter',
+							description: 'Med favoritter kan du gemme din opsætning, så du får hurtig adgang til de samme temaer/temagrupper. Typisk vil din afdeling/team have en favorit med de mest anvendte teamer. Ved at sætte kryds ved en favorit kan du vælge den som startfavorit, og hver gang Webkortet åbnes vil du have favorittens temaer tilgængelige.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#cowi-gadefoto',
+						popover: {
+							title: 'COWI Gadefoto',
+							description: 'Med Gadefoto får du adgang til 360°-fotos af hele vejnettet i Viborg Kommune, optaget fra i gadeniveau.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#fotoviewer',
+						popover: {
+							title: 'SDFI Skråfotos',
+							description: 'Med Skråfotos kan du se luftfotos af hele Danmark fra flere vinkler.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#print-menu',
+						popover: {
+							title: 'Udskrivning af kort',
+							description: 'Her kan printe dit kort til pdf/png (fx hvis kortet skal anvendes som bilag til et udvalgsmøde, eller indsættes på viborg.dk). Printdesigneren kan anvendes i tilfælde hvor du selv vil opsætte hvordan printet skal se ud.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#news',
+						popover: {
+							title: 'Nyhedsportal',
+							description: 'Er der nyheder fra GIS-gruppen, siden du sidst havde Webkortet åbent, vil klokken være rød. Du kan også trykke på klokke-ikonet for at læse ældre nyheder.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#s4box',
 						popover: {
 							title: 'Søgefelt',
-							description: 'Her kan du søge efter adresser, stednavne eller matrikler. Hvis du vil søge efter matrikler, så husk at angive det ejerlav, matriklen ligger i.',
+							description: 'Her kan du søge efter adresser, stednavne, matrikler, lokalplaner, virksomheder temaer mm.',
 							position: 'left'
 						}
 					},
 					{
 						popover: {
 							title: 'Tak for nu!',
-							description: 'HUSK, at du ikke kan ødelægge noget, så du kan rolig prøve dig frem :) Hvis du har nogen som helst spørgsmål eller har lyst til at vide mere, så er du velkommen til at kontakte os i GIS ved at klikke HER',
+							description: 'HUSK, at du ikke kan ødelægge noget, så du kan rolig prøve dig frem 😃 Hvis du har spørgsmål eller har lyst til at vide mere, så er du velkommen til at kontakte GIS-gruppen. Du finder også flere vejledninger i "Informationer fra GIS området" på Teams.',
 							position: 'mid-center'
 						}
 					}
