@@ -1,4 +1,4 @@
 # Tour de GIS
-Et værktøj til at lave en guidet tour igennem Slagelse kommunes webgis, Spatial Suite.
+Et værktøj til at lave en guidet tour igennem Viborg Kommunes webgis, Spatial Suite.
 
-Under udvikling....
+(Stærkt inspireret af Slagelse 😉)
