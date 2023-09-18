@@ -10,7 +10,6 @@
 	</requires>
 
 	<onclick>sps_tool_init();</onclick>
-
 	<jssrc><![CDATA[
 		function sps_tool_init() {
 			
@@ -37,7 +36,15 @@
 						element: '#panel-themes',
 						popover: {
 							title: 'Temavælgeren',
-							description: 'Det her er Temavælgeren. Her kan du finde alle de temaer, der er tilgengælige!',
+							description: 'Det her er Temavælgeren. Her kan du finde alle de temaer, der er tilgængelige!',
+							position: 'right'
+						}
+					},
+					{
+						element: '#themegroup-baggrundskort',
+						popover: {
+							title: 'Baggrundskort',
+							description: 'I temagruppen Baggrundskort kan du skifte mellem ortofoto (luftfoto) og skærmkort. Du kan finde flere baggrundskort i Temabiblioteket.',
 							position: 'right'
 						}
 					},
@@ -45,7 +52,7 @@
 						element: '#panel-themes-header',
 						popover: {
 							title: 'Temavælgeren',
-							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller oprette dit eget tema eller din egen skitse',
+							description: 'Med de her knapper kan du åbne temabiblioteket, åbne alle temagrupper med et tændt tema eller oprette dit eget tema eller skitse',
 							position: 'right'
 						}
 					},
@@ -82,12 +89,22 @@
 						}
 					},
 					{
-						element: '#print-menu',
+						element: '#analysis-menu',
+						popover: {
+							title: 'Data om borgere',
+							description: 'I Webkortet har du adgang til at lave analyser på en række data om borgere, og til fx at danne høringslister til brevfletning. Vi gør opmærksom på, at persondata kun må anvendes i arbejdsøjemed, og at der løbende udføres stikprøvekontroller.',
+							position: 'right'
+						}
+					},
+					{
+						element: '#print-menu .sub',
 						popover: {
 							title: 'Udskrivning af kort',
 							description: 'Her kan printe dit kort til pdf/png (fx hvis kortet skal anvendes som bilag til et udvalgsmøde, eller indsættes på viborg.dk). Printdesigneren kan anvendes i tilfælde hvor du selv vil opsætte hvordan printet skal se ud.',
 							position: 'right'
-						}
+						},
+						onHighlightStarted: (el) => { document.getElementById("print-menu").getElementsByClassName("sub")[0].style.display = 'block'; },
+						onDeselected: (el) => { document.getElementById("print-menu").getElementsByClassName("sub")[0].style.display = 'none'; }
 					},
 					{
 						element: '#news',
